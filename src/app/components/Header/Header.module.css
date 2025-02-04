@@ -1,0 +1,19 @@
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+    background-color: #d99541;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navigationContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+}
+
+.isActive {
+    background-color: #33333360;
+}
