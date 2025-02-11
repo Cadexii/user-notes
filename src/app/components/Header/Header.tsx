@@ -1,6 +1,6 @@
 import styles from "./Header.module.css";
 
-const navigationItems = ["Dashboard", "My Notes", "Settings"];
+const navigationItems = ["My Notes", "Settings"];
 
 const Header = () => {
   return (
