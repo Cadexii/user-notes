@@ -3,13 +3,19 @@
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    padding: 1rem;
+    padding: 0.5rem;
     background-color: #b27428;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.navigationContainer, .profileContainer {
+    display: flex;
+    gap: 1rem;
+}
+
 .navigationItem, .profileItem {
-    padding: 25px;
+    padding: 10px 20px;
+    border-radius: 5px;
 }
 
 .isActive {

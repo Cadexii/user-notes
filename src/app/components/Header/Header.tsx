@@ -14,7 +14,7 @@ const Header = () => {
       </div>
       <div className={styles.profileContainer}>
         <a href="#" className={styles.profileItem}>
-          username
+          Log Out
         </a>
       </div>
     </div>
