@@ -3,4 +3,6 @@
     margin: 30px;
     border-radius: 30px;
     height: 90vh;
+    overflow: auto;
+    padding: 60px;
 }
