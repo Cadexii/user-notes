@@ -1,0 +1,30 @@
+.notesContent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 60px;
+    gap: 40px;
+}
+
+.note {
+    background-color: #c4893f;
+    line-height: 1;
+    flex: 0 0 calc((100% - (40px * 5)) / 6); 
+    height: 250px;
+}
+
+.noteTitle, .noteDescription {
+    padding: 10px;
+    width: 100%;
+}
+
+.noteTitle {
+    background-color: #b27428;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.noteDescription {
+    font-size: 1rem;
+}
