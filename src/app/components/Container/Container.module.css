@@ -1,8 +1,14 @@
 .container {
-    background-color: #2a2a2a;
+    --background: #b5b5b5;
     margin: 30px;
     border-radius: 30px;
     height: 90vh;
     overflow: auto;
     padding: 60px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .container {
+        background-color: #2a2a2a;
+    }
 }
