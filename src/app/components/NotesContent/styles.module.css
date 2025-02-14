@@ -28,6 +28,22 @@
     font-size: 1rem;
 }
 
+.addNote {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 3px #c4893f;
+    border-radius: 30px;
+    color: #c4893f;
+    font-size: 20px;
+    width: 250px;
+    height: 250px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
 /* Media Queries */
 @media (max-width: 2355px) {
     .note {
@@ -72,6 +88,9 @@
 }
 
 @media (max-width: 570px) {
+    .notesContent {
+        justify-content: center;
+    }
     .note {
         flex: 0 0 100%;
     }
