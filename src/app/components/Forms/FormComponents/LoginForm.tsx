@@ -1,14 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import auth from "../../../utils/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import FormSection from "../FormSection/FormSection";
+import { useRouter } from "next/navigation";
+import { useAuth } from "../../../contexts/AuthContext";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const { currentUser } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (currentUser) {
+      router.replace("/my-notes");
+    }
+  }, [currentUser, router]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();

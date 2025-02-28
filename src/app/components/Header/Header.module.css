@@ -13,9 +13,12 @@
     gap: 1rem;
 }
 
-.navigationItem, .profileItem {
+.navigationItem, .profileItem, .isActive {
     padding: 10px 20px;
     border-radius: 5px;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .isActive {

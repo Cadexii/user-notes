@@ -58,13 +58,6 @@ const FormSection: React.FC<FormSectionProps> = ({
             {button}
           </button>
         </div>
-        {link && (
-          <div>
-            <a href={link.href} className={styles.link}>
-              {link.title}
-            </a>
-          </div>
-        )}
         {message && (
           <div
             className={
@@ -72,6 +65,13 @@ const FormSection: React.FC<FormSectionProps> = ({
             }
           >
             <p>{message}</p>
+          </div>
+        )}
+        {link && (
+          <div>
+            <a href={link.href} className={styles.link}>
+              {link.title}
+            </a>
           </div>
         )}
       </div>

@@ -73,16 +73,13 @@
 .messageBoxSuccess, .messageBoxError {
     border-radius: 10px;
     padding: 5px 50px;
-    margin-top: 30px;
 }
 
 .messageBoxSuccess {
-    background-color: rgba(0, 153, 28, 0.454);
     border: solid rgba(0, 128, 21, 0.494) 3px;
 }
 
 .messageBoxError {
-    background-color: rgba(255, 0, 0, 0.454);
     border: solid rgba(255, 0, 0, 0.494) 3px;
 }
 
