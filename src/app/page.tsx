@@ -1,9 +1,9 @@
-import NotesContent from "./components/NotesContent/NotesContent";
+import LoginForm from "./components/Forms/FormComponents/LoginForm";
 
 export default function Home() {
   return (
     <div className="user-notes">
-      <NotesContent />
+      <LoginForm />
     </div>
   );
 }
