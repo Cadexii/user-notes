@@ -37,9 +37,17 @@ const Header = () => {
           ))}
       </div>
       <div className={styles.profileContainer}>
-        <p className={styles.profileItem} onClick={handleSignOut}>
-          Log Out
-        </p>
+        {currentUser ? (
+          <p className={styles.profileItem} onClick={handleSignOut}>
+            Log Out
+          </p>
+        ) : (
+          <Link href={pathname === "/" ? "/sign-up" : "/"}>
+            <p className={styles.profileItem}>
+              {pathname === "/" ? "Sign Up" : "Log In"}
+            </p>
+          </Link>
+        )}
       </div>
     </div>
   );
