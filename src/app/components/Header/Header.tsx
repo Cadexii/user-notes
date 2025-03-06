@@ -22,12 +22,12 @@ const Header = () => {
   const pathname = usePathname();
 
   const getLinkClass = (path: string) => {
-    return `${styles.navigationItem} ${pathname === path && styles.isActive}`;
+    return `${styles.item} ${pathname === path && styles.isActive}`;
   };
 
   return (
     <div className={styles.headerContainer}>
-      <div className={styles.navigationContainer}>
+      <div className={styles.content}>
         {currentUser &&
           !isLoading &&
           navigationItems.map((item, index) => (
@@ -36,19 +36,15 @@ const Header = () => {
             </Link>
           ))}
       </div>
-      <div className={styles.profileContainer}>
-        {currentUser ? (
-          <p className={styles.profileItem} onClick={handleSignOut}>
+      {currentUser ? (
+        <div className={styles.content}>
+          <p className={styles.item} onClick={handleSignOut}>
             Log Out
           </p>
-        ) : (
-          <Link href={pathname === "/" ? "/sign-up" : "/"}>
-            <p className={styles.profileItem}>
-              {pathname === "/" ? "Sign Up" : "Log In"}
-            </p>
-          </Link>
-        )}
-      </div>
+        </div>
+      ) : (
+        <p className={styles.titleItem}>UserNotes</p>
+      )}
     </div>
   );
 };

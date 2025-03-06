@@ -52,10 +52,6 @@ const LoginForm = () => {
         },
       ]}
       button="Login"
-      link={{
-        title: "Don't have an account? Sign up here",
-        href: "/sign-up",
-      }}
       message={message}
       onButtonClick={handleLogin}
     />
