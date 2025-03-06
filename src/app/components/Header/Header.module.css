@@ -6,19 +6,26 @@
     padding: 0.5rem;
     background-color: #b27428;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
 }
 
-.navigationContainer, .profileContainer {
+.content {
     display: flex;
     gap: 1rem;
 }
 
-.navigationItem, .profileItem, .isActive {
+.item, .isActive {
     padding: 10px 20px;
     border-radius: 5px;
     &:hover {
         cursor: pointer;
     }
+}
+
+.titleItem {
+    margin: 0 auto;
+    padding: 10px;
+    font-weight: bold;
 }
 
 .isActive {
