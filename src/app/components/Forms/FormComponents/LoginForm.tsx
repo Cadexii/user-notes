@@ -36,6 +36,8 @@ const LoginForm = () => {
 
   return (
     <FormSection
+      container
+      pageWidth
       title="Welcome to UserNotes!"
       inputs={[
         {
