@@ -59,7 +59,9 @@ const NotesContent = () => {
     return unsubscribe;
   };
 
-  const addNote = async () => {
+  const addNote = async (e: React.FormEvent) => {
+    e.preventDefault();
+
     if (!user) return null;
 
     try {
@@ -73,7 +75,11 @@ const NotesContent = () => {
       setMessage("Note added successfully!");
     } catch {
       setSuccess(false);
-      setMessage("Error adding note");
+      if (!title || !description) {
+        setMessage("Please fill out all fields");
+      } else {
+        setMessage("Error adding note");
+      }
     }
   };
 
