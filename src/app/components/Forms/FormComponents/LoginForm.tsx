@@ -30,6 +30,8 @@ const LoginForm = () => {
         setMessage("Please enter an email and password");
       } else {
         setMessage("Invalid email or password");
+        setEmail("");
+        setPassword("");
       }
     }
   };
