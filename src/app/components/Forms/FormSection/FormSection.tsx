@@ -1,6 +1,8 @@
 import styles from "./FormSection.module.css";
 
 type FormSectionProps = {
+  container?: boolean;
+  pageWidth?: boolean;
   title?: string;
   inputs: {
     type: string;
@@ -8,7 +10,11 @@ type FormSectionProps = {
     value: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   }[];
-  textArea?: string;
+  textArea?: {
+    placeholder: string;
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  };
   button: string;
   link?: {
     title: string;
@@ -20,6 +26,8 @@ type FormSectionProps = {
 };
 
 const FormSection: React.FC<FormSectionProps> = ({
+  container,
+  pageWidth,
   title,
   inputs,
   textArea,
@@ -30,8 +38,8 @@ const FormSection: React.FC<FormSectionProps> = ({
   onButtonClick,
 }) => {
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
+    <div className={`${container ? styles.container : ""}`}>
+      <div className={`${styles.content} ${pageWidth && styles.pageWidth}`}>
         <div className={styles.title}>
           <h2>{title}</h2>
         </div>
@@ -49,7 +57,9 @@ const FormSection: React.FC<FormSectionProps> = ({
           {textArea && (
             <textarea
               className={styles.descriptionInput}
-              placeholder={textArea}
+              placeholder={textArea.placeholder}
+              value={textArea.value}
+              onChange={textArea.onChange}
             />
           )}
         </form>

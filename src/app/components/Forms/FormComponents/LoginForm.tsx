@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import auth from "../../../utils/firebaseConfig";
+import { auth } from "../../../utils/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import FormSection from "../FormSection/FormSection";
 import { useRouter } from "next/navigation";
@@ -30,12 +30,16 @@ const LoginForm = () => {
         setMessage("Please enter an email and password");
       } else {
         setMessage("Invalid email or password");
+        setEmail("");
+        setPassword("");
       }
     }
   };
 
   return (
     <FormSection
+      container
+      pageWidth
       title="Welcome to UserNotes!"
       inputs={[
         {

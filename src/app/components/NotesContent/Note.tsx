@@ -1,16 +1,18 @@
 import styles from "./styles.module.css";
 
-const Note = () => {
+type NoteProps = {
+  title: string;
+  description: string;
+};
+
+const Note: React.FC<NoteProps> = ({ title, description }) => {
   return (
     <div className={styles.note}>
       <div className={styles.noteTitle}>
-        <h2>note</h2>
+        <h2>{title}</h2>
       </div>
       <div className={styles.noteDescription}>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+        <p>{description}</p>
       </div>
     </div>
   );

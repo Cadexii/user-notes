@@ -1,0 +1,35 @@
+.background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 500px;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 101;
+}
+
+.close {
+    align-self: flex-end;
+}
+
+@media (prefers-color-scheme: dark) {
+    .modal {
+        background-color: #333;
+        color: white;
+    }
+}
