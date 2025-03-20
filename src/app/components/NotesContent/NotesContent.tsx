@@ -48,6 +48,8 @@ const NotesContent = () => {
   useEffect(() => {
     if (!modalOpen) {
       setMessage("");
+      setTitle("");
+      setDescription("");
       setSuccess(false);
     }
   }, [modalOpen]);
