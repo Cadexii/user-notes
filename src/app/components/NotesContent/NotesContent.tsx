@@ -71,12 +71,15 @@ const NotesContent = () => {
     return unsubscribe;
   };
 
-  const addNote = async (e: React.FormEvent) => {
-    e.preventDefault();
-
+  const addNote = async () => {
     if (!user) return null;
 
     try {
+      if (!title || !description) {
+        setSuccess(false);
+        setMessage("Please fill out all fields");
+        return;
+      }
       await addDoc(collection(db, `users/${user.uid}/notes`), {
         title,
         description,
@@ -88,11 +91,7 @@ const NotesContent = () => {
       setMessage("Note added successfully!");
     } catch {
       setSuccess(false);
-      if (!title || !description) {
-        setMessage("Please fill out all fields");
-      } else {
-        setMessage("Error adding note");
-      }
+      setMessage("Error adding note");
     }
   };
 
