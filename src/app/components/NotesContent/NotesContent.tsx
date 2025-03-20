@@ -9,12 +9,20 @@ import Modal from "../Modal/Modal";
 import FormSection from "../Forms/FormSection/FormSection";
 import { onAuthStateChanged, User } from "@firebase/auth";
 import { auth, db } from "@/app/utils/firebaseConfig";
-import { addDoc, collection, onSnapshot, query } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  onSnapshot,
+  orderBy,
+  query,
+  Timestamp,
+} from "firebase/firestore";
 
 type NoteProps = {
   id: string;
   title: string;
   description: string;
+  createdAt: Timestamp;
 };
 
 const NotesContent = () => {
@@ -45,13 +53,17 @@ const NotesContent = () => {
   }, [modalOpen]);
 
   const fetchNotes = async (uid: string) => {
-    const q = query(collection(db, `users/${uid}/notes`));
+    const q = query(
+      collection(db, `users/${uid}/notes`),
+      orderBy("createdAt", "asc")
+    );
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       setNotes(
         querySnapshot.docs.map((doc) => ({
           id: doc.id,
           title: doc.data().title,
           description: doc.data().description,
+          createdAt: doc.data().createdAt.toDate(),
         }))
       );
     });
@@ -68,6 +80,7 @@ const NotesContent = () => {
       await addDoc(collection(db, `users/${user.uid}/notes`), {
         title,
         description,
+        createdAt: Timestamp.now(),
       });
       setTitle("");
       setDescription("");
