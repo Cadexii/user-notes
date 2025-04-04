@@ -10,7 +10,14 @@
     line-height: 1;
     flex: 0 0 calc((100% - (40px * 8)) / 9); 
     min-width: calc((100% - (40px * 8)) / 9);
-    height: 250px;
+    height: 240px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.modalNote {
+    height: 500px;
 }
 
 .noteTitle, .noteDescription {
@@ -33,8 +40,8 @@
 .noteDescription {
     font-size: 1rem;
     word-wrap: break-word;
-    overflow-wrap: break-word; 
-    p {
+    overflow-wrap: break-word;
+     p {
         line-clamp: 11;
         display: -webkit-box;
         -webkit-line-clamp: 11;
