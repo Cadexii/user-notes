@@ -18,13 +18,14 @@
     max-width: 500px;
     background-color: white;
     color: black;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     z-index: 101;
 }
 
 .close {
     align-self: flex-end;
+    margin-bottom: 10px;
 }
 
 @media (prefers-color-scheme: dark) {

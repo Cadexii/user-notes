@@ -26,13 +26,20 @@ type NoteProps = {
 };
 
 const NotesContent = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [addNoteModalOpen, setAddNoteModalOpen] = useState(false);
+  const [noteModalOpen, setNoteModalOpen] = useState(false);
+  const [selectedNote, setSelectedNote] = useState<NoteProps | null>(null);
   const [user, setUser] = useState<User | null>(null);
   const [notes, setNotes] = useState<NoteProps[]>([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState(false);
+
+  const handleNoteClick = (note: NoteProps) => {
+    setSelectedNote(note);
+    setNoteModalOpen(true);
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -46,13 +53,13 @@ const NotesContent = () => {
   }, []);
 
   useEffect(() => {
-    if (!modalOpen) {
+    if (!addNoteModalOpen) {
       setMessage("");
       setTitle("");
       setDescription("");
       setSuccess(false);
     }
-  }, [modalOpen]);
+  }, [addNoteModalOpen]);
 
   const fetchNotes = async (uid: string) => {
     const q = query(
@@ -105,14 +112,23 @@ const NotesContent = () => {
             key={note.id}
             title={note.title}
             description={note.description}
+            onClick={() => {
+              handleNoteClick(note);
+            }}
           />
         ))}
-        <div className={styles.addNote} onClick={() => setModalOpen(true)}>
+        <div
+          className={styles.addNote}
+          onClick={() => setAddNoteModalOpen(true)}
+        >
           <Image src="add_circle.svg" alt="Add Note" width={100} height={100} />
           <h2>Add Note</h2>
         </div>
       </div>
-      <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+      <Modal
+        isOpen={addNoteModalOpen}
+        onClose={() => setAddNoteModalOpen(false)}
+      >
         <FormSection
           title="Add Note"
           inputs={[
@@ -137,6 +153,17 @@ const NotesContent = () => {
           success={success}
           onButtonClick={addNote}
         />
+      </Modal>
+      <Modal isOpen={noteModalOpen} onClose={() => setNoteModalOpen(false)}>
+        {selectedNote && (
+          <div>
+            <Note
+              title={selectedNote.title}
+              description={selectedNote.description}
+              isModalNote
+            />
+          </div>
+        )}
       </Modal>
     </Container>
   );
