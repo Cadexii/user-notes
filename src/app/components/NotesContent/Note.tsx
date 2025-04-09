@@ -21,7 +21,11 @@ const Note: React.FC<NoteProps> = ({
       <div className={styles.noteTitle}>
         <h2>{title}</h2>
       </div>
-      <div className={styles.noteDescription}>
+      <div
+        className={`${
+          isModalNote ? styles.noteDescriptionModal : styles.noteDescription
+        }`}
+      >
         <p>{description}</p>
       </div>
     </div>
